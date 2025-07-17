@@ -7,12 +7,9 @@ const LoadingScreen = () => {
     const { user, session } = useAuth()
 
     useEffect(() => {
-        if (!session) return
         if (user) {
-            console.log('User is logged in:', user)
             router.replace('/(tabs)')
         } else {
-            console.log('No user found, redirecting to login')
             router.replace('/(auth)')
         }
     }, [user, session])
