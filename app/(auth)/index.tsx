@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#F5EFE6',
     },
     content: {
-        height: '50%',
+        height: '40%',
         width: '100%',
         justifyContent: 'center',
         alignItems: 'center',
@@ -56,29 +56,29 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
     },
     title: {
-        fontSize: 80,
+        fontSize: 100,
         fontWeight: '700',
         textAlign: 'center',
-        color: '#8B6F47',
-        fontFamily: 'SpaceMono',
+        color: '#E09252',
+        fontFamily: 'AmaticSCBold',
 
     },
     subtitle: {
-        fontSize: 28,
+        fontSize: 36,
         fontWeight: '500',
         textAlign: 'center',
         color: '#5C4A3D',
-        fontFamily: 'SpaceMono',
+        fontFamily: 'AmaticSCBold',
     },
     banner: {
         position: 'absolute',
         bottom: 0,
         width: '100%',
-        height: '70%',
+        height: '80%',
     },
     button: {
-        backgroundColor: '#8B6F47',
-        paddingVertical: 10,
+        backgroundColor: '#E09252',
+        paddingVertical: 5,
         width: '80%',
         borderRadius: 50,
         marginTop: 40,
@@ -86,9 +86,9 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         color: '#F5EFE6',
-        fontSize: 26,
+        fontSize: 38,
         fontWeight: '600',
         textAlign: 'center',
-        fontFamily: 'SpaceMono',
+        fontFamily: 'AmaticSCBold',
     },
 })
