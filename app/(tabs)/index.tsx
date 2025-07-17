@@ -10,11 +10,12 @@ export default function HomeScreen() {
 
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
+      headerBackgroundColor={{ light: '#FFF4D7', dark: '#FFF4D7' }}
       headerImage={
         <Image
-          source={require('@/assets/images/partial-react-logo.png')}
+          source={require('@/assets/images/welcome-banner.png')}
           style={styles.reactLogo}
+          contentFit="contain"
         />
       }>
       <ThemedView style={styles.titleContainer}>
@@ -67,10 +68,8 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
     position: 'absolute',
+    width: '100%',
+    height: 270,
   },
 });
