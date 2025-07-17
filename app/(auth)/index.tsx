@@ -1,5 +1,5 @@
+import { useAuth } from '@/components/context/AuthContext';
 import { supabase } from '@/lib/supabase';
-import * as Linking from 'expo-linking';
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { Alert, Button, StyleSheet, Text, TextInput, View } from 'react-native';
@@ -9,16 +9,26 @@ export default function LoginScreen() {
     const [password, setPassword] = useState('Pass123!')
     const [isSigningUp, setIsSigningUp] = useState(false)
     const router = useRouter()
+    const { session } = useAuth()
 
-    const handleLogIn = async () => {
-        if (!email || !password) return Alert.alert('Error', 'Please enter email and password')
+    async function handleLogIn() {
+        try {
+            console.log('Attempting login with:', email, password);
 
-        const { error } = await supabase.auth.signInWithPassword({ email, password })
+            const { data, error } = await supabase.auth.signInWithPassword({
+                email,
+                password
+            });
 
-        if (error) {
-            Alert.alert('Auth error', error.message)
-        } else {
-            router.push('/(tabs)')
+            if (error) {
+                console.log('Login failed:', error);
+                Alert.alert(error.message);
+            } else {
+                console.log('Login successful:', data);
+                router.replace('/(tabs)');
+            }
+        } catch (e) {
+            console.error('Unexpected login error:', e);
         }
     }
 
@@ -27,13 +37,9 @@ export default function LoginScreen() {
     const handleRegister = async () => {
         if (!email || !password) return Alert.alert('Error', 'Please enter email and password')
 
-        const authCallback = await Linking.getInitialURL()
-
 
         const { error } = await supabase.auth.signUp({
-            email, password, options: {
-                emailRedirectTo: authCallback ? `${authCallback}/(auth)/callback` : 'https://yourapp.com/auth/callback',
-            }
+            email, password
         })
 
         if (error) {
@@ -43,6 +49,7 @@ export default function LoginScreen() {
             setIsSigningUp(false)
         }
     }
+
 
     return (
         <View style={styles.container}>

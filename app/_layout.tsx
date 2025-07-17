@@ -7,6 +7,10 @@ import { AuthProvider } from '@/components/context/AuthContext';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { Slot } from 'expo-router';
 
+if (typeof global.structuredClone !== 'function') {
+  global.structuredClone = (val) => JSON.parse(JSON.stringify(val));
+}
+
 export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
@@ -14,7 +18,6 @@ export default function RootLayout() {
   });
 
   if (!loaded) {
-    // Async font loading only occurs in development.
     return null;
   }
 
@@ -22,8 +25,8 @@ export default function RootLayout() {
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <AuthProvider>
         <Slot />
+        <StatusBar style="auto" />
       </AuthProvider>
-      <StatusBar style="auto" />
     </ThemeProvider>
   );
 }
