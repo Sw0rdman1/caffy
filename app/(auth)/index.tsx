@@ -1,20 +1,31 @@
 import { Image } from 'expo-image'
+import { router } from 'expo-router'
 import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 const WelcomeScreen = () => {
     const { top } = useSafeAreaInsets()
+
+    const handlePress = () => {
+        router.push('/(auth)/login')
+    }
+
     return (
-        <View style={[styles.container, { paddingTop: top + 30 }]}>
+        <View style={[styles.container]}>
             <StatusBar style="dark" />
-            <View style={styles.textContainer}>
+            <View style={styles.content}>
                 <Text style={styles.title} >
                     Caffy
                 </Text>
                 <Text style={styles.subtitle} >
                     Capture your daily coffee ritual.
                 </Text>
+                <TouchableOpacity style={styles.button} onPress={handlePress}>
+                    <Text style={styles.buttonText}>
+                        Get Started
+                    </Text>
+                </TouchableOpacity>
             </View>
 
             <Image
@@ -36,28 +47,47 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#F5EFE6',
     },
-    textContainer: {
+    content: {
+        height: '50%',
+        width: '100%',
+        justifyContent: 'center',
         alignItems: 'center',
+        paddingTop: 100,
         paddingHorizontal: 20,
     },
     title: {
-        fontSize: 58,
+        fontSize: 100,
         fontWeight: '700',
         textAlign: 'center',
-        marginBottom: 20,
-        color: '#4B3621'
+        color: '#4B3621',
+        fontFamily: 'AmaticSCBold',
     },
     subtitle: {
-        fontSize: 32,
+        fontSize: 36,
         fontWeight: '500',
         textAlign: 'center',
         color: '#5C4A3D',
-        marginBottom: 30,
+        fontFamily: 'AmaticSCBold',
     },
     banner: {
         position: 'absolute',
         bottom: 0,
         width: '100%',
-        height: 600
+        height: '70%',
+    },
+    button: {
+        backgroundColor: '#5C4A3D',
+        paddingVertical: 5,
+        width: '80%',
+        borderRadius: 50,
+        marginTop: 40,
+        zIndex: 100,
+    },
+    buttonText: {
+        color: '#F5EFE6',
+        fontSize: 36,
+        fontWeight: '600',
+        textAlign: 'center',
+        fontFamily: 'AmaticSCBold',
     },
 })
