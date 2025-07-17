@@ -27,11 +27,12 @@ export default function LoginScreen() {
     const handleRegister = async () => {
         if (!email || !password) return Alert.alert('Error', 'Please enter email and password')
 
-        const authCallback = Linking.createURL('/(auth)/callback')
+        const authCallback = await Linking.getInitialURL()
+
 
         const { error } = await supabase.auth.signUp({
             email, password, options: {
-                emailRedirectTo: authCallback,
+                emailRedirectTo: authCallback ? `${authCallback}/(auth)/callback` : 'https://yourapp.com/auth/callback',
             }
         })
 
