@@ -1,4 +1,4 @@
-import { useAuth } from '@/components/context/AuthContext';
+import { useAuth } from '@/components/Context/AuthContext';
 import { supabase } from '@/lib/supabase';
 import { useRouter } from 'expo-router';
 import { useState } from 'react';

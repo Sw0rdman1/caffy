@@ -3,7 +3,7 @@ import { useFonts } from 'expo-font';
 import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
 
-import { AuthProvider } from '@/components/context/AuthContext';
+import { AuthProvider } from '@/components/Context/AuthContext';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { Slot } from 'expo-router';
 
@@ -15,6 +15,8 @@ export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    AmaticSCRegular: require('../assets/fonts/AmaticSC-Regular.ttf'),
+    AmaticSCBold: require('../assets/fonts/AmaticSC-Regular.ttf'),
   });
 
   if (!loaded) {
