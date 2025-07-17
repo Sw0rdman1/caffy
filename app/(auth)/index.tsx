@@ -56,18 +56,19 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
     },
     title: {
-        fontSize: 100,
+        fontSize: 80,
         fontWeight: '700',
         textAlign: 'center',
-        color: '#4B3621',
-        fontFamily: 'AmaticSCBold',
+        color: '#8B6F47',
+        fontFamily: 'SpaceMono',
+
     },
     subtitle: {
-        fontSize: 36,
+        fontSize: 28,
         fontWeight: '500',
         textAlign: 'center',
         color: '#5C4A3D',
-        fontFamily: 'AmaticSCBold',
+        fontFamily: 'SpaceMono',
     },
     banner: {
         position: 'absolute',
@@ -76,8 +77,8 @@ const styles = StyleSheet.create({
         height: '70%',
     },
     button: {
-        backgroundColor: '#5C4A3D',
-        paddingVertical: 5,
+        backgroundColor: '#8B6F47',
+        paddingVertical: 10,
         width: '80%',
         borderRadius: 50,
         marginTop: 40,
@@ -85,9 +86,9 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         color: '#F5EFE6',
-        fontSize: 36,
+        fontSize: 26,
         fontWeight: '600',
         textAlign: 'center',
-        fontFamily: 'AmaticSCBold',
+        fontFamily: 'SpaceMono',
     },
 })
