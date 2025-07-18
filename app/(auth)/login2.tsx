@@ -1,12 +1,18 @@
 // app/(auth)/login.tsx
+import EmailInput from '@/components/Input/EmailInput'
+import PasswordInput from '@/components/Input/PasswordInput'
+import Link from '@/components/Link/Link'
 import { Image } from 'expo-image'
 import { router } from 'expo-router'
 import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { useState } from 'react'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { RFValue } from 'react-native-responsive-fontsize'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 const LoginScreen = () => {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
     const { top } = useSafeAreaInsets()
 
     return (
@@ -14,26 +20,17 @@ const LoginScreen = () => {
             <StatusBar style="dark" />
             <Text style={styles.title}>Welcome Back</Text>
             <View style={{ width: '100%', paddingHorizontal: 20, alignItems: 'center' }}>
-                <TextInput
-                    placeholder="Email"
-                    placeholderTextColor="#A38E7A"
-                    style={styles.input}
-                />
-                <TextInput
-                    placeholder="Password"
-                    placeholderTextColor="#A38E7A"
-                    secureTextEntry
-                    style={styles.input}
-                />
-
+                <EmailInput value={email} onChangeText={setEmail} />
+                <PasswordInput value={password} onChangeText={setPassword} />
 
                 <TouchableOpacity style={styles.button}>
                     <Text style={styles.buttonText}>Login</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => router.push('/(auth)/register')}>
-                    <Text style={styles.linkText}>Don't have an account? Register</Text>
-                </TouchableOpacity>
+                <Link
+                    onPress={() => router.push('/(auth)/register')}
+                    text="Don't have an account? Register"
+                />
             </View>
             <Image
                 source={require('../../assets/images/welcome-banner.png')}
@@ -90,7 +87,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     linkText: {
-        color: '#E09252',
+        color: '#91876D',
         fontSize: RFValue(20),
         fontFamily: 'AmaticSCBold',
         textDecorationLine: 'underline',

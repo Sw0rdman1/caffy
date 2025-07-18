@@ -1,11 +1,19 @@
+import EmailInput from '@/components/Input/EmailInput'
+import FullNameInput from '@/components/Input/FullNameInput'
+import PasswordInput from '@/components/Input/PasswordInput'
+import Link from '@/components/Link/Link'
 import { Image } from 'expo-image'
 import { router } from 'expo-router'
 import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { useState } from 'react'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { RFValue } from 'react-native-responsive-fontsize'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 const RegisterScreen = () => {
+    const [fullName, setFullName] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
     const { top } = useSafeAreaInsets()
 
     const handleRegister = () => {
@@ -19,30 +27,18 @@ const RegisterScreen = () => {
             <Text style={styles.title}>Join Caffy</Text>
             <View style={{ width: '100%', paddingHorizontal: 20, alignItems: 'center' }}>
 
-                <TextInput
-                    placeholder="Full Name"
-                    placeholderTextColor="#A38E7A"
-                    style={styles.input}
-                />
-                <TextInput
-                    placeholder="Email"
-                    placeholderTextColor="#A38E7A"
-                    style={styles.input}
-                />
-                <TextInput
-                    placeholder="Password"
-                    placeholderTextColor="#A38E7A"
-                    secureTextEntry
-                    style={styles.input}
-                />
+                <FullNameInput value={fullName} onChangeText={setFullName} />
+                <EmailInput value={email} onChangeText={setEmail} />
+                <PasswordInput value={password} onChangeText={setPassword} />
 
                 <TouchableOpacity style={styles.button} onPress={handleRegister}>
                     <Text style={styles.buttonText}>Register</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => router.push('/(auth)/login2')}>
-                    <Text style={styles.linkText}>Already have an account? Login</Text>
-                </TouchableOpacity>
+                <Link
+                    onPress={() => router.push('/(auth)/login')}
+                    text="Already have an account? Login"
+                />
             </View>
 
             <Image
@@ -100,7 +96,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     linkText: {
-        color: '#E09252',
+        color: '#91876D',
         fontSize: RFValue(20),
         fontFamily: 'AmaticSCBold',
         textDecorationLine: 'underline',
