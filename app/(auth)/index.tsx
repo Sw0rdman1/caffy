@@ -2,6 +2,7 @@ import { Image } from 'expo-image'
 import { router } from 'expo-router'
 import { StatusBar } from 'expo-status-bar'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { RFValue } from 'react-native-responsive-fontsize'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 const WelcomeScreen = () => {
@@ -56,16 +57,13 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
     },
     title: {
-        fontSize: 100,
-        fontWeight: '700',
+        fontSize: RFValue(100),
         textAlign: 'center',
         color: '#E09252',
         fontFamily: 'AmaticSCBold',
-
     },
     subtitle: {
-        fontSize: 36,
-        fontWeight: '500',
+        fontSize: RFValue(34),
         textAlign: 'center',
         color: '#5C4A3D',
         fontFamily: 'AmaticSCBold',
@@ -86,7 +84,7 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         color: '#F5EFE6',
-        fontSize: 38,
+        fontSize: RFValue(38),
         fontWeight: '600',
         textAlign: 'center',
         fontFamily: 'AmaticSCBold',
