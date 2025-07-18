@@ -9,7 +9,7 @@ const WelcomeScreen = () => {
     const { top } = useSafeAreaInsets()
 
     const handlePress = () => {
-        router.push('/(auth)/login')
+        router.push('/(auth)/login2')
     }
 
     return (
