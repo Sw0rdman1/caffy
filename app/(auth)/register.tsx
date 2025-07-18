@@ -36,7 +36,7 @@ const RegisterScreen = () => {
                 </TouchableOpacity>
 
                 <Link
-                    onPress={() => router.push('/(auth)/login')}
+                    onPress={() => router.push('/(auth)/login2')}
                     text="Already have an account? Login"
                 />
             </View>

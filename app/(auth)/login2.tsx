@@ -1,18 +1,13 @@
-// app/(auth)/login.tsx
-import EmailInput from '@/components/Input/EmailInput'
-import PasswordInput from '@/components/Input/PasswordInput'
+import LoginForm from '@/components/Form/LogInForm'
 import Link from '@/components/Link/Link'
 import { Image } from 'expo-image'
 import { router } from 'expo-router'
 import { StatusBar } from 'expo-status-bar'
-import { useState } from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import { RFValue } from 'react-native-responsive-fontsize'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 const LoginScreen = () => {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
     const { top } = useSafeAreaInsets()
 
     return (
@@ -20,13 +15,7 @@ const LoginScreen = () => {
             <StatusBar style="dark" />
             <Text style={styles.title}>Welcome Back</Text>
             <View style={{ width: '100%', paddingHorizontal: 20, alignItems: 'center' }}>
-                <EmailInput value={email} onChangeText={setEmail} />
-                <PasswordInput value={password} onChangeText={setPassword} />
-
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Login</Text>
-                </TouchableOpacity>
-
+                <LoginForm />
                 <Link
                     onPress={() => router.push('/(auth)/register')}
                     text="Don't have an account? Register"

@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
         borderColor: '#E0D6CC',
         paddingHorizontal: 12,
         height: 55,
-        marginBottom: 16,
         width: '90%',
     },
     icon: {
