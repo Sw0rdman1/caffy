@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
         fontFamily: 'AmaticSCBold',
         color: '#5C4A3D',
         marginBottom: 40,
-        marginTop: 30,
+        marginTop: 20,
     },
     input: {
         width: '100%',

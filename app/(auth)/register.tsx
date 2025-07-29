@@ -1,12 +1,10 @@
-import EmailInput from '@/components/Input/EmailInput'
-import FullNameInput from '@/components/Input/FullNameInput'
-import PasswordInput from '@/components/Input/PasswordInput'
+import RegistrationForm from '@/components/Form/RegistrationForm'
 import Link from '@/components/Link/Link'
 import { Image } from 'expo-image'
 import { router } from 'expo-router'
 import { StatusBar } from 'expo-status-bar'
 import { useState } from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import { RFValue } from 'react-native-responsive-fontsize'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
@@ -26,19 +24,13 @@ const RegisterScreen = () => {
             <StatusBar style="dark" />
             <Text style={styles.title}>Join Caffy</Text>
             <View style={{ width: '100%', paddingHorizontal: 20, alignItems: 'center' }}>
-
-                <FullNameInput value={fullName} onChangeText={setFullName} />
-                <EmailInput value={email} onChangeText={setEmail} />
-                <PasswordInput value={password} onChangeText={setPassword} />
-
-                <TouchableOpacity style={styles.button} onPress={handleRegister}>
-                    <Text style={styles.buttonText}>Register</Text>
-                </TouchableOpacity>
-
-                <Link
-                    onPress={() => router.push('/(auth)/login2')}
-                    text="Already have an account? Login"
-                />
+                <View style={{ width: '100%', paddingHorizontal: 20, alignItems: 'center' }}>
+                    <RegistrationForm />
+                    <Link
+                        onPress={() => router.push('/(auth)/login2')}
+                        text="Already have an account? Login"
+                    />
+                </View>
             </View>
 
             <Image
